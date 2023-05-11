@@ -39,7 +39,6 @@ export const layout: RunTimeLayoutConfig = () => {
       paddingBottom: 120,
     },
     rightContentRender: () => <RightContent />,
-    footerRender: () => <GlobalFooter />,
   };
 };
 

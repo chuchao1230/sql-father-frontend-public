@@ -49,13 +49,6 @@ const IndexPage: React.FC = () => {
         title={
           <>
             使用现成的词库来生成特定数据，或用作研究数据集！
-            <a
-              href="https://www.bilibili.com/video/BV1eP411N7B7/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              查看视频教程
-            </a>
           </>
         }
         extra={

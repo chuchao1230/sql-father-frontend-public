@@ -153,7 +153,7 @@ const FormInput: React.FC<Props> = forwardRef((props, ref) => {
           initialValue={20}
           rules={[{ required: true }]}
         >
-          <InputNumber min={10} max={100} />
+          <InputNumber min={10} max={10000} />
         </Form.Item>
         <Form.List name="fieldList">
           {(fields, { add, remove, move }) => (
