@@ -253,17 +253,6 @@ const FormInput: React.FC<Props> = forwardRef((props, ref) => {
                         <Input placeholder="描述中文名称、作用等" />
                       </Form.Item>
                       <Form.Item
-                        label="onUpdate"
-                        name={[field.name, 'onUpdate']}
-                      >
-                        <AutoComplete
-                          style={{ width: 180 }}
-                          placeholder="字段更新动作"
-                          options={onUpdateOptions}
-                          filterOption={filterOption}
-                        />
-                      </Form.Item>
-                      <Form.Item
                         label="非空"
                         name={[field.name, 'notNull']}
                         valuePropName="checked"
