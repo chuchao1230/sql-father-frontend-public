@@ -13,7 +13,6 @@ import styles from './index.less';
  * 头像下拉菜单
  *
  * @constructor
- * @author https://github.com/liyupi
  */
 const AvatarDropdown: React.FC = () => {
   const { initialState, setInitialState } = useModel('@@initialState');

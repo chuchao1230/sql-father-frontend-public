@@ -49,7 +49,7 @@ export default () => {
     >
       <LoginForm<UserType.UserLoginRequest>
         logo={Logo}
-        title="SQL之父"
+        title="数据生成系统"
         subTitle="快速生成代码和数据"
         onFinish={async (formData) => {
           await doUserLogin(formData);

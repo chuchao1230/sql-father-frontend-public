@@ -28,7 +28,7 @@ export async function getInitialState(): Promise<InitialState> {
  */
 export const layout: RunTimeLayoutConfig = () => {
   return {
-    title: 'SQL之父',
+    title: '数据生成系统',
     logo: Logo,
     menu: {
       locale: false,

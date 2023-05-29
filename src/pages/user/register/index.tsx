@@ -43,7 +43,7 @@ export default () => {
     >
       <LoginForm<UserType.UserRegisterRequest>
         logo={Logo}
-        title="SQL之父"
+        title="数据生成系统"
         subTitle="快速生成代码和数据"
         submitter={{
           searchConfig: {

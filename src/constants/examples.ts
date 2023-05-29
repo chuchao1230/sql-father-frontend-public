@@ -7,7 +7,7 @@ export const AUTO_INPUT_EXAMPLE = "id，用户名，创建时间，更新时间�
  * JSON 输入示例
  */
 export const JSON_INPUT_EXAMPLE = {
-    dbName: 'yupi_db',
+    dbName: 'test_db',
     tableName: 'user',
     tableComment: '用户表',
     fieldList: [

@@ -1,4 +1,4 @@
-export const DEFAULT_NAME = 'SQL之父';
+export const DEFAULT_NAME = '数据生成系统';
 
 /**
  * 字段类型列表

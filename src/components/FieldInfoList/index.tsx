@@ -32,7 +32,6 @@ interface Props {
  * 表信息列表
  *
  * @constructor
- * @author https://github.com/liyupi
  */
 const FieldInfoList: React.FC<Props> = (props) => {
   const { dataList, pagination, loading, showTag = true, onImport } = props;
