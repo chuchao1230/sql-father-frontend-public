@@ -120,11 +120,11 @@ const IndexPage: React.FC = () => {
   const inputConfigView = (
     <Card
       title="输入配置"
-      extra={
+      /**extra={
         <Select defaultValue="MySQL" style={{ width: 120 }} disabled>
           <Select.Option value="MySQL">MySQL</Select.Option>
         </Select>
-      }
+      }**/
     >
       <Space size="large" wrap>
         <Button
