@@ -3,6 +3,7 @@ import MonacoEditorWebpackPlugin from 'monaco-editor-webpack-plugin';
 import routes from './src/configs/routes';
 
 export default defineConfig({
+  //publicPath: 'http://192.168.246.133:8000/',
   antd: {},
   access: {},
   model: {},
