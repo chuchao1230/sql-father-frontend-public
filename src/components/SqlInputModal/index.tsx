@@ -11,7 +11,7 @@ interface Props {
 }
 
 /**
- * 建表 SQL 输入模态框
+ * xml数据 输入模态框
  *
  * @constructor
  */
@@ -20,7 +20,7 @@ const SqlInput: React.FC<Props> = (props) => {
   const [form] = Form.useForm();
 
   /**
-   * sql 转为 schema
+   * xml 转为 schema
    * @param values
    */
   const onFinish = async (values: any) => {

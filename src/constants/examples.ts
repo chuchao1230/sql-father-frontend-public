@@ -77,3 +77,19 @@ export const SQL_INPUT_EXAMPLE =
     "update_time datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',\n" +
     "is_deleted tinyint default 0 not null comment '是否删除(0-未删, 1-已删)'\n" +
     ") comment '用户表';";
+
+/**
+ * xml 输入示例
+ */
+export const XML_INPUT_EXAMPLE =
+    '<DATAHEAD>\n'+
+    '<DATA_NAME>COL_D_LNF_AUTO_APRV_ABK_TAB</DATA_NAME>\n'+
+    '<FIELDS>\n' +
+    '<FIELD ID="1" TYPE="varchar(40)">id</FIELD>\n' +
+    '<FIELD ID="2" TYPE="varchar(32)">cust_no</FIELD>\n' +
+    '<FIELD ID="3" TYPE="string">cust_name</FIELD>\n' +
+    '<FIELD ID="4" TYPE="varchar(500)">org_name</FIELD>\n' +
+    '<FIELD ID="5" TYPE="varchar(50)">apply_time</FIELD>\n' +
+    '<FIELD ID="6" TYPE="varchar(32)">product_no</FIELD>\n' +
+    "</FIELDS>\n" +
+    '</DATAHEAD>\n';

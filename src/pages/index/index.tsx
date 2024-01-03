@@ -4,6 +4,7 @@ import GenerateResultCard from '@/components/GenerateResultCard';
 import ImportTableDrawer from '@/components/ImportTableDrawer';
 import JsonInputModal from '@/components/JsonInputModal';
 import SqlInputModal from '@/components/SqlInputModal';
+import XmlInputModal from '@/components/XmlInputModal';
 import { generateBySchema, getSchemaByExcel } from '@/services/sqlService';
 import { getTableInfoById } from '@/services/tableInfoService';
 import { PageContainer } from '@ant-design/pro-components';
@@ -35,6 +36,7 @@ const IndexPage: React.FC = () => {
   const [autoInputModalVisible, setAutoInputModalVisible] = useState(false);
   const [jsonInputModalVisible, setJsonInputModalVisible] = useState(false);
   const [sqlInputModalVisible, setSqlInputModalVisible] = useState(false);
+  const [xmlInputModalVisible, setXmlInputModalVisible] = useState(false);
   const [importTableDrawerVisible, setImportTableDrawerVisible] =
     useState(false);
   const [genLoading, setGenLoading] = useState(false);
@@ -43,6 +45,8 @@ const IndexPage: React.FC = () => {
 
   const [searchParams] = useSearchParams();
   const tableId = searchParams.get('table_id');
+
+  const [selectedOption, setSelectedOption] = useState('SQL');
 
   /**
    * 根据 Schema 生成
@@ -120,11 +124,12 @@ const IndexPage: React.FC = () => {
   const inputConfigView = (
     <Card
       title="输入配置"
-      /**extra={
-        <Select defaultValue="MySQL" style={{ width: 120 }} disabled>
-          <Select.Option value="MySQL">MySQL</Select.Option>
-        </Select>
-      }**/
+      extra={
+        <Radio.Group onChange={(e) => setSelectedOption(e.target.value)} value={selectedOption}>
+          <Radio.Button value="SQL">SQL</Radio.Button>
+          <Radio.Button value="XML">XML</Radio.Button>
+        </Radio.Group>
+      }
     >
       <Space size="large" wrap>
         <Button
@@ -138,9 +143,15 @@ const IndexPage: React.FC = () => {
           导入表
         </Button>
         <Button onClick={() => setJsonInputModalVisible(true)}>导入配置</Button>
+        {selectedOption === "XML" ? (
+          <Button onClick={() => setXmlInputModalVisible(true)}>
+          导入 XML 数据格式
+        </Button>
+        ) : (
         <Button onClick={() => setSqlInputModalVisible(true)}>
           导入建表 SQL
         </Button>
+        )}
         <Upload {...uploadProps}>
           <Button>导入 Excel</Button>
         </Upload>
@@ -201,6 +212,11 @@ const IndexPage: React.FC = () => {
         onSubmit={importTableSchema}
         visible={sqlInputModalVisible}
         onClose={() => setSqlInputModalVisible(false)}
+      />
+      <XmlInputModal
+        onSubmit={importTableSchema}
+        visible={xmlInputModalVisible}
+        onClose={() => setXmlInputModalVisible(false)}
       />
       <ImportTableDrawer
         onImport={(tableInfo) => {
