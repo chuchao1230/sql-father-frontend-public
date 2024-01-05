@@ -43,20 +43,6 @@ export async function getSchemaBySql(params: GenerateBySqlRequest) {
 }
 
 /**
- * 根据 xml 获取 schema
- * @param params
- */
-export async function getSchemaByXml(params: GenerateBySqlRequest) {
-  return request<BaseResponse<TableSchema>>('/sql/get/schema/xml', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: params,
-  });
-}
-
-/**
  * 根据 Excel 获取 schema
  * @param file
  */

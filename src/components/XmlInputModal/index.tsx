@@ -1,5 +1,5 @@
 import { XML_INPUT_EXAMPLE } from '@/constants/examples';
-import { getSchemaByXml } from '@/services/sqlService';
+import { getSchemaByXml } from '@/services/xmlService';
 import { Button, Form, message, Modal, Space } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 import React from 'react';
@@ -11,11 +11,11 @@ interface Props {
 }
 
 /**
- * 建表 SQL 输入模态框
+ * xml 输入模态框
  *
  * @constructor
  */
-const SqlInput: React.FC<Props> = (props) => {
+const XmlInput: React.FC<Props> = (props) => {
   const { onSubmit, visible, onClose } = props;
   const [form] = Form.useForm();
 
@@ -24,7 +24,7 @@ const SqlInput: React.FC<Props> = (props) => {
    * @param values
    */
   const onFinish = async (values: any) => {
-    if (!values.sql) {
+    if (!values.xml) {
       return;
     }
     try {
@@ -37,7 +37,7 @@ const SqlInput: React.FC<Props> = (props) => {
 
   return (
     <Modal title="导入xml 数据格式" open={visible} footer={null} onCancel={onClose}>
-      <Form<GenerateBySqlRequest>
+      <Form<GenerateByXmlRequest>
         form={form}
         layout="vertical"
         onFinish={onFinish}
@@ -74,4 +74,4 @@ const SqlInput: React.FC<Props> = (props) => {
   );
 };
 
-export default SqlInput;
+export default XmlInput;

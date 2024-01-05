@@ -6,6 +6,7 @@ import JsonInputModal from '@/components/JsonInputModal';
 import SqlInputModal from '@/components/SqlInputModal';
 import XmlInputModal from '@/components/XmlInputModal';
 import { generateBySchema, getSchemaByExcel } from '@/services/sqlService';
+import { generateXmlBySchema } from '@/services/xmlService';
 import { getTableInfoById } from '@/services/tableInfoService';
 import { PageContainer } from '@ant-design/pro-components';
 import {
@@ -64,6 +65,22 @@ const IndexPage: React.FC = () => {
     setGenLoading(false);
   };
 
+    /**
+   * 根据 Schema 生成xml
+   * @param values
+   */
+    const doGenerateXml = async (values: TableSchema) => {
+      setGenLoading(true);
+      try {
+        const res = await generateXmlBySchema(values);
+        setResult(res.data);
+        message.success('已生成');
+      } catch (e: any) {
+        message.error('生成错误，' + e.message);
+      }
+      setGenLoading(false);
+    };
+
   /**
    * 导入 tableSchema
    * @param tableSchema
@@ -73,6 +90,7 @@ const IndexPage: React.FC = () => {
     setAutoInputModalVisible(false);
     setJsonInputModalVisible(false);
     setSqlInputModalVisible(false);
+    setXmlInputModalVisible(false);
     message.success('导入成功');
   };
 
@@ -157,7 +175,11 @@ const IndexPage: React.FC = () => {
         </Upload>
       </Space>
       <div style={{ marginTop: 16 }} />
+      {selectedOption === "XML" ? (
+         <FormInput ref={formInputRef} onSubmit={doGenerateXml} />
+         ) : (
       <FormInput ref={formInputRef} onSubmit={doGenerateBySchema} />
+      )}
     </Card>
   );
 

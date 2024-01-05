@@ -52,3 +52,7 @@ interface GenerateByAutoRequest {
 interface GenerateBySqlRequest {
   sql: string;
 }
+
+interface GenerateByXmlRequest {
+  xml: string;
+}
